@@ -1,0 +1,34 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.container{
+    width:85%;
+    margin:auto;
+}
+
+.home-page-container{
+    width:100%;
+    height:auto;
+}
+
+.navbar-container{
+    width:100%;
+    border-bottom: 2px solid #d8d8d8;
+}
+
+.navbar-images-container{
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+}
+
+.navbar-images-container img{
+    width:30px;
+    height:30px;
+    cursor: pointer;
+}

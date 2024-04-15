@@ -1,8 +1,11 @@
 import React from 'react'
+import Home from './containers/Home/Home';
 
 const App = () => {
   return (
-    <div>Testing the gitbug app changes</div>
+    <>
+      <Home />
+    </>
   )
 }
 
