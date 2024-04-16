@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import ErrorPage from "./ErrorPage";
+import withPageLayout from "../HOC/withPageLayout";
 
+const AppComponent = withPageLayout(App)
   
   export const router = createBrowserRouter([
       {
         path: "/",
-        element: <App />,
-        errorElement: <ErrorPage />
+        element: <AppComponent />,
+        errorElement: <ErrorPage />,
       },
       {
         path: "/:id",
