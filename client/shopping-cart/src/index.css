@@ -32,3 +32,20 @@
     height:30px;
     cursor: pointer;
 }
+
+.cart-list-container{
+    width:0px;
+}
+
+.cart-list-container-open{
+    width:300px;
+}
+
+.cart-list-container,
+.cart-list-container-open {
+    position:absolute;
+    right:0px;
+    height:100vw;
+    border-left: 2px solid #d8d8d8;
+    transition: 0.4s;
+}
