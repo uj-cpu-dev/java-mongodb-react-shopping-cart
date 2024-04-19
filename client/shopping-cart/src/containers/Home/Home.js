@@ -1,14 +1,10 @@
 import React from 'react'
-import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
-import Products from '../../components/products/Products'
-import ProductsHeader from '../../components/products/components/ProductsHeader'
+import Products from './products/Products'
+import ProductsHeader from './products/components/ProductsHeader'
+import getListOfProducts from "../../api/getProducts";
 
 const Home = () => {
-  const { error, data, isLoading } = useQuery({
-    queryKey: ['products'],
-    queryFn: () => axios .get('http://localhost:8080/api/v1/shopping-list').then((res) => res.data),
-})
+  const {data, isLoading, error} = getListOfProducts();
 
   return (
     <div className='home-page-container'>
