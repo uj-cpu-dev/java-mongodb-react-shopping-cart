@@ -1,5 +1,5 @@
 import React from 'react'
-import Star from '../../../images/star.png'
+import Star from '../../../../images/star.png'
 
 const ProductRating = ({rating}) => {
   return (

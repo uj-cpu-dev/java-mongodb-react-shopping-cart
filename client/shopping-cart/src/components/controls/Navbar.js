@@ -1,6 +1,6 @@
 import React from 'react'
-import CompLogo from '../images/comp-logo.png'
-import CartLogo from '../images/cart-logo.png'
+import CompLogo from '../../images/comp-logo.png'
+import CartLogo from '../../images/cart-logo.png'
 
 const Navbar = ( { setIsOpen, isOpen } ) => {
   return (

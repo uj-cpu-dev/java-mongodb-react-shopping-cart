@@ -2,11 +2,7 @@ import React from 'react'
 import Home from './containers/Home/Home';
 
 const App = () => {
-  return (
-    <>
-      <Home />
-    </>
-  )
+  return <Home />
 }
 
 export default App;

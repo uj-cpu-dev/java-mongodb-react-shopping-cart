@@ -1,18 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
 import ErrorPage from "./ErrorPage";
 import withPageLayout from "../HOC/withPageLayout";
+import ShoppingItemPage from "../containers/ShoppingItemPage/ShoppingItemPage";
+import Home from "../containers/Home/Home";
 
-const AppComponent = withPageLayout(App)
+const HomeComponent = withPageLayout(Home);
+const ShoppingItemComponent = withPageLayout(ShoppingItemPage);
   
   export const router = createBrowserRouter([
       {
         path: "/",
-        element: <AppComponent />,
+        element: <HomeComponent />,
         errorElement: <ErrorPage />,
       },
       {
         path: "/:id",
-        element: <h1>Each Cart Item Component</h1>
+        element: <ShoppingItemComponent />
       },
   ]);
