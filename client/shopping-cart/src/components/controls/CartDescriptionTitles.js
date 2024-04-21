@@ -9,7 +9,7 @@ const CartDescriptionTitles = () => {
                 titles &&
                 titles.map((title, index) => {
                     return(
-                        <div>
+                        <div key={index}>
                             {index !== 0 && title}
                         </div>
                     )

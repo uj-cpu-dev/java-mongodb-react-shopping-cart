@@ -8,6 +8,11 @@ body.overlay-active{
     overflow:hidden;
 }
 
+a{
+    text-decoration: none;
+    color: initial;
+}
+
 .container{
     width:85%;
     margin:auto;
@@ -301,4 +306,9 @@ body.overlay-active{
 
 .cart-description h4{
     margin-bottom:2.5px;
+}
+
+.back-button{
+    position:relative;
+    top:60px;
 }

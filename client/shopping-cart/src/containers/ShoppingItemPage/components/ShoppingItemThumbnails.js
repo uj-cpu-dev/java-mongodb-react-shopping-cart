@@ -6,9 +6,9 @@ const ShoppingItemThumbnails = ( { images } ) => {
         <figure className="shopping-item-thumbnails-container">
             {
                 images &&
-                images.map(img => {
+                images.map((img, i) => {
                     return(
-                        <ShoppingItemThumbnail image={''} />
+                        <ShoppingItemThumbnail key={i} image={''} />
                     )
                 })
             }

@@ -10,12 +10,8 @@ const ItemSizes = () => {
         <div className={"item-sizes-container"}>
             {
                 sizes &&
-                sizes.map(t => {
-                    return(
-                        <button>
-                            {t}
-                        </button>
-                    )
+                sizes.map((t,i) => {
+                    return(<button key={i}> {t} </button>)
                 })
             }
         </div>

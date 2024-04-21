@@ -2,16 +2,17 @@ import React from 'react'
 import ProductImage from './ProductImage';
 import ProductRating from './ProductRating';
 import ProductDetails from './ProductDetails';
+import { Link } from 'react-router-dom';
 
 const Product = ( { product } ) => {
-    const { rating, product_name, price } = product;
+    const { rating, product_name, price, id } = product;
     
     return (
-        <div className='product-container'>
+        <Link className='product-container' to={`/${id}`}>
             <ProductImage />
             <ProductRating rating={rating} />
             <ProductDetails productName={product_name} price={price} />
-        </div>
+        </Link>
     )
 }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AddToCart = () => {
+const AddToCart = ( { onClickHandler } ) => {
     return (
-        <button className={"add-to-cart-button"}> Add to cart </button>
+        <button className={"add-to-cart-button"} onClick={onClickHandler}> Add to cart </button>
     )
 }
 

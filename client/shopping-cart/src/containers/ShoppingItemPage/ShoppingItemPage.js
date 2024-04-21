@@ -3,22 +3,24 @@ import { useParams } from 'react-router-dom';
 import useGetProduct from "../../api/getEachProduct";
 import ShoppingItemImage from "./components/ShoppingItemImage";
 import ShoppingItemDetails from "./components/ShoppingItemDetails";
+import BackButton from "../../components/controls/BackButton";
 
 const ShoppingItemPage = () => {
   const {id} = useParams();
   const {data, isLoading, error} = useGetProduct(id);
-
-  console.log(data)
 
   if(isLoading){
       return <h1> Loading...</h1>
   }
 
   return (
-    <div className={"shopping-item-page-container"}>
-      <ShoppingItemImage />
-      <ShoppingItemDetails productName={data?.product_name} price={data?.price} />
-    </div>
+      <>
+      <BackButton />
+        <div className={"shopping-item-page-container"}>
+          <ShoppingItemImage />
+          <ShoppingItemDetails data={data} />
+        </div>
+      </>
   )
 }
 
