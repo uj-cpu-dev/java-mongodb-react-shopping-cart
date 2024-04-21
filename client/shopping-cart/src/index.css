@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body.overlay-active{
+    overflow:hidden;
+}
+
 .container{
     width:85%;
     margin:auto;
@@ -18,11 +22,14 @@
 
 .home-page-container{
     width:100%;
+    margin-top:70px;
 }
 
 .navbar-container{
     width:100%;
     border-bottom: 2px solid #d8d8d8;
+    position:fixed;
+    background: #fff;
 }
 
 .navbar-images-container{
@@ -40,21 +47,24 @@
 }
 
 .cart-list-container{
-    width:0px;
+    width:0%;
+    top:50px;
 }
 
 .cart-list-container-open{
     width:100%;
+    top:52px;
 }
 
 .cart-list-container,
 .cart-list-container-open {
-    position:absolute;
+    position:fixed;
     right:0px;
     height:100%;
     border-left: 2px solid #d8d8d8;
     transition: 0.4s;
     background:#fff;
+    z-index: 1;
 }
 
 .products-header-container,
@@ -120,6 +130,10 @@
     padding:10px;
     display:flex;
     justify-content: space-between;
+}
+
+.shopping-item-page-container{
+    margin-top:70px;
 }
 
 .shopping-item-image-container,
@@ -221,4 +235,70 @@
     background:#000;
     color:#fff;
     cursor: pointer;
+}
+
+.cart-list-content,
+.cart-items-container{
+    margin-top:30px;
+}
+
+.cart-description-titles-container,
+.cart-item-container{
+    width:100%;
+    display:grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1.5fr 1fr 1fr;
+    padding:10px;
+    border-bottom: 2px solid #d8d8d8;
+    margin-top:20px;
+    align-items: center;
+}
+
+.cart-item-container{
+    margin: 0px 0px 15px 0px;
+}
+
+.cart-size-content,
+.cart-remove{
+    border:1px solid #d8d8d8;
+    width:fit-content;
+    padding:7px;
+    border-radius:2px;
+}
+
+.cart-remove{
+    width:70px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cart-remove button{
+    background:none;
+    border:none;
+    cursor: pointer;
+}
+
+.cart-quantity-container{
+    display:flex;
+    align-items: center;
+    width:fit-content;
+    border:1px solid #d8d8d8;
+    border-radius:2px;
+}
+
+.cart-quantity-container span{
+    padding:7px;
+    margin:0px 7px;
+    cursor: pointer;
+}
+
+.cart-description h4,
+.cart-price p{
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.cart-description h4{
+    margin-bottom:2.5px;
 }

@@ -1,14 +1,14 @@
 import React from 'react'
 import Products from './products/Products'
-import ProductsHeader from './products/components/ProductsHeader'
 import getListOfProducts from "../../api/getProducts";
+import HeaderTitle from "../../components/controls/HeaderTitle";
 
 const Home = () => {
   const {data, isLoading, error} = getListOfProducts();
 
   return (
     <div className='home-page-container'>
-        <ProductsHeader productsCount={data?.length || 0} />
+        <HeaderTitle title={`Products (${data?.length || 0})`} additionalClassName={'products-header-container'} />
         <Products data={data} isLoading={isLoading} error={error} />
     </div>
   )
