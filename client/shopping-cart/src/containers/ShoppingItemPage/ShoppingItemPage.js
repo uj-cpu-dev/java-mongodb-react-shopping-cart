@@ -8,6 +8,8 @@ const ShoppingItemPage = () => {
   const {id} = useParams();
   const {data, isLoading, error} = useGetProduct(id);
 
+  console.log(data)
+
   if(isLoading){
       return <h1> Loading...</h1>
   }
