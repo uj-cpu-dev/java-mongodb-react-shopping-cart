@@ -1,11 +1,11 @@
 import React from 'react'
 
-const CartQuantity = ( { itemCount }) => {
+const CartQuantity = ( { itemCount, updateItemCount }) => {
     return(
         <div className={'cart-quantity-container'}>
-            <span> - </span>
+            <span onClick={() => updateItemCount('remove')}> - </span>
             <p> {itemCount} </p>
-            <span> + </span>
+            <span onClick={() => updateItemCount('add')}> + </span>
         </div>
     )
 }

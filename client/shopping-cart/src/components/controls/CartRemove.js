@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CartRemove = () => {
+const CartRemove = ( { onRemove } ) => {
     return (
-        <div className={'cart-remove'}>
+        <div className={'cart-remove'} onClick={onRemove}>
             <button> x </button>
         </div>
     )
