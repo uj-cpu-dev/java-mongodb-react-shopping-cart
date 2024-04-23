@@ -4,6 +4,7 @@ import CartDescriptionTitles from "./CartDescriptionTitles";
 import CartItems from "./CartItems";
 import CartContent from "./CartContent";
 import {useGlobalContext} from "../../context/ShoppingCartList";
+import ItemsTotalContainer from "./ItemsTotalContainer";
 const CartList = ( { isOpen } ) => {
     const context = useGlobalContext();
     const { state } = context;
@@ -15,6 +16,7 @@ const CartList = ( { isOpen } ) => {
                   <CartContent data={state?.cartItems}>
                       <CartDescriptionTitles />
                       <CartItems cartItemData={state?.cartItems} />
+                      <ItemsTotalContainer />
                   </CartContent>
               </div>
           </div>

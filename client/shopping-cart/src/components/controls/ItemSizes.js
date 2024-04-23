@@ -1,8 +1,8 @@
 import React from 'react';
 import ItemSelectorTitle from "./ItemSelectorTitle";
 
-const ItemSizes = () => {
-    const sizes = ["40.5", "41", "42", "43", "43.5", "44", "44.5", "45", "46"];
+const ItemSizes = ( { size, updateItemSize }) => {
+    const sizes = ["40", "41", "42", "43", "43.5", "44", "44.5", "45", "46"].map(t => parseFloat(t));
 
     return(
         <>
@@ -11,7 +11,14 @@ const ItemSizes = () => {
             {
                 sizes &&
                 sizes.map((t,i) => {
-                    return(<button key={i}> {t} </button>)
+                    return(
+                        <button
+                            onClick={() => updateItemSize(t)}
+                            className={`items-size-btn ${t === size ? 'btn-active' : ''}`}
+                            key={i}
+                        >
+                            {t}
+                        </button>)
                 })
             }
         </div>

@@ -5,32 +5,40 @@ import CartItemSize from "./CartItemSize";
 import CartItemPrice from "./CartItemPrice";
 import CartQuantity from "./CartQuantity";
 import CartRemove from "./CartRemove";
-import {useGlobalContext} from "../../context/ShoppingCartList";
+import { useGlobalContext } from "../../context/ShoppingCartList";
 
 const CartItem = ({ cartItemDetails }) => {
-    const [cartItemCount, setCartItemCount] = useState(cartItemDetails?.itemCount)
+    const [cartItemCount, setCartItemCount] = useState(0)
     const { product_name, size, price, itemCount } = cartItemDetails;
     const context = useGlobalContext();
-    const { functions } = context;
-    const { updateCart,  deleteCart } = functions;
+    const { state, functions } = context;
+    const { isUpdatingShoppingCart } = state;
+    const { updateCart,  deleteCart, setIsUpdatingShoppingCart } = functions;
 
     const updateItemCount = (payload) => {
-      payload === 'add' ? setCartItemCount((prev) => ++prev) : setCartItemCount((prev) => --prev);
+        payload === 'add' ? setCartItemCount((prev) => ++prev) : setCartItemCount((prev) => --prev);
+        setIsUpdatingShoppingCart(true);
     }
 
     useEffect(() => {
-        updateCart({
-            ...cartItemDetails,
-            itemCount: cartItemCount
-        })
-    }, [cartItemCount]);
+        setCartItemCount(cartItemDetails?.itemCount)
+    }, [cartItemDetails]);
+
+    useEffect(() => {
+        if(isUpdatingShoppingCart){
+            updateCart({
+                ...cartItemDetails,
+                itemCount: cartItemCount
+            })
+        }
+    }, [isUpdatingShoppingCart]);
 
     return(
         <div className={'cart-item-container'}>
             <CartImage />
             <CartDescription product_name={product_name} />
             <CartItemSize size={size} />
-            <CartQuantity itemCount={itemCount} updateItemCount={updateItemCount} />
+            <CartQuantity itemCount={cartItemCount} updateItemCount={updateItemCount} />
             <CartRemove onRemove={() => deleteCart(cartItemDetails)} />
             <CartItemPrice price={price} />
         </div>

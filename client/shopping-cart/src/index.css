@@ -8,6 +8,10 @@ body.overlay-active{
     overflow:hidden;
 }
 
+.Toastify__toast-theme--light{
+    top:50px !important;
+}
+
 a{
     text-decoration: none;
     color: initial;
@@ -45,6 +49,15 @@ a{
     padding:10px;
 }
 
+.cart-logo-container{
+    position:relative;
+}
+
+.cart-logo-container span{
+    position:absolute;
+    top:0px;
+}
+
 .navbar-images-container img{
     width:30px;
     height:30px;
@@ -67,7 +80,7 @@ a{
     right:0px;
     height:100%;
     border-left: 2px solid #d8d8d8;
-    transition: 0.4s;
+    transition: 0.2s;
     background:#fff;
     z-index: 1;
 }
@@ -223,13 +236,22 @@ a{
     margin:20px 0px;
 }
 
-.item-sizes-container button{
+.items-size-btn{
     border:1px solid #bbbbbb;
     padding:10px 15px;
     border-radius:5px;
     margin: 0px 10px 10px 0px;
     background:none;
     color:#000;
+    transition:0.2s;
+    cursor: pointer;
+}
+
+
+.items-size-btn.btn-active,
+.items-size-btn:hover{
+    background:#000;
+    color:#fff;
 }
 
 .add-to-cart-button{
@@ -240,6 +262,12 @@ a{
     background:#000;
     color:#fff;
     cursor: pointer;
+}
+
+.add-to-cart-button.is-disabled{
+    cursor: not-allowed;
+    background: #9a9a9a;
+    color:#fff;
 }
 
 .cart-list-content,
@@ -311,4 +339,26 @@ a{
 .back-button{
     position:relative;
     top:60px;
+}
+
+.items-total-container{
+    display:flex;
+    justify-content: end;
+    width:100%;
+}
+
+.item-tab{
+    border:1px solid #d8d8d8;
+    width:fit-content;
+    padding:20px;
+    margin-right:20px;
+    text-align:center;
+    display:flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.item-tab span{
+    margin-right:20px;
 }
