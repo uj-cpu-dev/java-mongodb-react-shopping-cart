@@ -21,8 +21,8 @@ public class ShoppingCartListService {
         return shoppingCartListRepository.save(cartItem);
     }
 
-    public Optional<ShoppingCartList> updateCartItems(Integer id, ShoppingCartList cartItem){
-        cartItem.setId(id);
+    public Optional<ShoppingCartList> updateCartItems(String id, ShoppingCartList cartItem){
+        //cartItem.setId(id);
         Optional<ShoppingCartList> cartListItem = shoppingCartListRepository.findById(id);
         if(cartListItem.isEmpty()){
             throw new CustomException("CART ITEM NOT FOUND");
@@ -33,7 +33,7 @@ public class ShoppingCartListService {
         return Optional.of(addToCart(cartItemToUpdate));
     }
 
-    public boolean deleteCartItem(Integer id) {
+    public boolean deleteCartItem(String id) {
         Optional<ShoppingCartList> cartItemToDelete = shoppingCartListRepository.deleteById(id);
         if(cartItemToDelete.isEmpty()){
             throw new CustomException("CART ITEM DOES NOT EXIST");

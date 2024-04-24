@@ -37,7 +37,7 @@ public class ShoppingCartListController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateCartItems(@PathVariable Integer id, @RequestBody ShoppingCartList cartListItem){
+    public ResponseEntity<?> updateCartItems(@PathVariable String id, @RequestBody ShoppingCartList cartListItem){
         try{
             Optional<ShoppingCartList> existingCartItem = shoppingCartListService.updateCartItems(id, cartListItem);
             return new ResponseEntity<>(existingCartItem, HttpStatus.OK);
@@ -47,7 +47,7 @@ public class ShoppingCartListController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCartItemById(@PathVariable Integer id){
+    public ResponseEntity<?> deleteCartItemById(@PathVariable String id){
         try{
             boolean cartItemToDelete = shoppingCartListService.deleteCartItem(id);
             if(cartItemToDelete){

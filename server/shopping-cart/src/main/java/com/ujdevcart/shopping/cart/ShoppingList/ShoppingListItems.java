@@ -18,4 +18,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ShoppingListItems extends ShoppingItem {
     @Id
     public ObjectId _id;
+
+    private Integer id;
 }

@@ -18,4 +18,6 @@ public class ShoppingCartList extends ShoppingItem {
 
     @Id
     private ObjectId _id;
+
+    private String id;
 }

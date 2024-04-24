@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  client:
+    build:
+      context: client/shopping-cart
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    networks:
+      - react-springboot
+    depends_on:
+      - server
+
+  server:
+    restart: always
+    build:
+      context: server/shopping-cart
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/.m2
+    depends_on:
+      - mongo
+    networks:
+      - springboot-mongo
+      - react-springboot
+
+  mongo:
+    restart: always
+    image: mongo:4.2.0
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - springboot-mongo
+
+networks:
+  react-springboot:
+  springboot-mongo:
+
+volumes:
+  mongo_data:

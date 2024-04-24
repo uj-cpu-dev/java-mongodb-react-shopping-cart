@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface ShoppingCartListRepository extends MongoRepository<ShoppingCartList, ObjectId> {
-    Optional<ShoppingCartList> findById(Integer id);
+    Optional<ShoppingCartList> findById(String id);
 
-    Optional<ShoppingCartList> deleteById(Integer id);
+    Optional<ShoppingCartList> deleteById(String id);
 }

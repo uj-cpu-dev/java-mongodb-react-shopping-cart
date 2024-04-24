@@ -8,8 +8,6 @@ import java.util.List;
 @NoArgsConstructor
 public class ShoppingItem {
 
-    private Integer id;
-
     private String product_name;
 
     private int rating;
@@ -26,8 +24,7 @@ public class ShoppingItem {
 
     private int itemCount;
 
-    public ShoppingItem(Integer id, String product_name, int rating, String thumbnail, int price, List<String> thumbnail_colors, int size, List<ShoppingListReviews> reviews, int itemCount) {
-        this.id = id;
+    public ShoppingItem(String product_name, int rating, String thumbnail, int price, List<String> thumbnail_colors, int size, List<ShoppingListReviews> reviews, int itemCount) {
         this.product_name = product_name;
         this.rating = rating;
         this.thumbnail = thumbnail;
