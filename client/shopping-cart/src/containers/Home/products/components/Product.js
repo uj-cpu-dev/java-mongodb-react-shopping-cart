@@ -5,11 +5,11 @@ import ProductDetails from './ProductDetails';
 import { Link } from 'react-router-dom';
 
 const Product = ( { product } ) => {
-    const { rating, product_name, price, id } = product;
+    const { rating, product_name, price, id, thumbnail } = product;
     
     return (
         <Link className='product-container' to={`/${id}`}>
-            <ProductImage />
+            <ProductImage thumbnail={thumbnail} />
             <ProductRating rating={rating} />
             <ProductDetails productName={product_name} price={price} />
         </Link>

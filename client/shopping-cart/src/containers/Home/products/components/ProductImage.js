@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ProductImage = () => {
+const ProductImage = ( { thumbnail } ) => {
   return (
     <figure className='product-image-container'>
-        <img src="" alt="product-img" />
+        <img src={thumbnail} alt="product-img" />
     </figure>
   )
 }

@@ -9,7 +9,7 @@ import { useGlobalContext } from "../../context/ShoppingCartList";
 
 const CartItem = ({ cartItemDetails }) => {
     const [cartItemCount, setCartItemCount] = useState(0)
-    const { product_name, size, price, itemCount } = cartItemDetails;
+    const { product_name, size, price, thumbnail } = cartItemDetails;
     const context = useGlobalContext();
     const { state, functions } = context;
     const { isUpdatingShoppingCart } = state;
@@ -31,11 +31,11 @@ const CartItem = ({ cartItemDetails }) => {
                 itemCount: cartItemCount
             })
         }
-    }, [isUpdatingShoppingCart]);
+    }, [isUpdatingShoppingCart]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return(
         <div className={'cart-item-container'}>
-            <CartImage />
+            <CartImage thumbnail={cartItemDetails?.thumbnail} />
             <CartDescription product_name={product_name} />
             <CartItemSize size={size} />
             <CartQuantity itemCount={cartItemCount} updateItemCount={updateItemCount} />

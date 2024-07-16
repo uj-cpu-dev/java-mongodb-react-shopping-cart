@@ -21,7 +21,7 @@ const ShoppingListProvider = ( { children } ) => {
 
     useEffect(() => {
         if(cartItems.length > 0) calculateTotalPrice()
-    }, [cartItems])
+    }, [cartItems]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const addToCart = (payload) => {
         mutateAddToShoppingCart.mutate(payload, {
