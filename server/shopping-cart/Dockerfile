@@ -1,21 +1,28 @@
-# Stage 1: Build stage
-FROM maven:3.8.4-openjdk-17 AS build
+# Stage 1: Build the Java application
+FROM maven:3.8.5-eclipse-temurin-17 as builder
+
+# Set the working directory
 WORKDIR /app
 
-# Copy the Maven project files
+# Copy the Maven project file and download dependencies
 COPY pom.xml .
+RUN mvn dependency:go-offline
+
+# Copy the source code and build the application
 COPY src ./src
+RUN mvn package -DskipTests
 
-# Build the application using Maven
-RUN mvn clean install
+# Stage 2: Prepare the production environment
+FROM eclipse-temurin:17-jre-focal
 
-# Stage 2: Final stage
-FROM openjdk:17-slim
-
+# Set the working directory
 WORKDIR /app
 
-# Copy the JAR file built in the previous stage
-COPY --from=build /app/target/shopping-cart-0.0.1-SNAPSHOT.jar .
+# Copy the built application from the builder stage
+COPY --from=builder /app/target/*.jar /app/app.jar
 
-# Command to run your application
-CMD ["java", "-jar", "shopping-cart-0.0.1-SNAPSHOT.jar"]
+# Expose the application port
+EXPOSE 8080
+
+# Command to run the application
+ENTRYPOINT ["java","-jar","/app/app.jar"]

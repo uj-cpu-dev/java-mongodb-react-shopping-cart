@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CartImage = () => {
+const CartImage = ( { thumbnail } ) => {
     return (
-        <figure>
-            <img src={'cart-img'} alt={'cart-img-logo'}/>
+        <figure className={'cart-img-container'}>
+            <img src={thumbnail} alt={'cart-img-logo'}/>
         </figure>
     )
 }

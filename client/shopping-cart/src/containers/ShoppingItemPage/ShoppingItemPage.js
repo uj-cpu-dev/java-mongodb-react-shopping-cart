@@ -7,7 +7,7 @@ import BackButton from "../../components/controls/BackButton";
 
 const ShoppingItemPage = () => {
   const {id} = useParams();
-  const {data, isLoading, error} = useGetProduct(id);
+  const {data, isLoading} = useGetProduct(id);
 
   if(isLoading){
       return <h1> Loading...</h1>
@@ -17,7 +17,7 @@ const ShoppingItemPage = () => {
       <>
       <BackButton />
         <div className={"shopping-item-page-container"}>
-          <ShoppingItemImage />
+          <ShoppingItemImage thumbnail={data?.thumbnail} />
           <ShoppingItemDetails data={data} />
         </div>
       </>

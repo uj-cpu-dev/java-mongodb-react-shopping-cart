@@ -6,13 +6,17 @@ const PageLayout = ( { children } ) => {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-       toggleOverlay();
+        if(isOpen){
+            document.body.classList.add('overlay-active')
+        } else {
+            document.body.classList.remove('overlay-active')
+        }
     }, [isOpen]);
 
-    const toggleOverlay = () => {
-        document.body.classList.toggle('overlay-active');
+   /* const toggleOverlay = (param) => {
+        document.body.classList.toggle(param);
         window.scrollTo(0, 0);
-    }
+    }*/
 
     return (
         <div className={"page-layout-container"}>
