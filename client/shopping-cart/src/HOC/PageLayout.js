@@ -13,11 +13,6 @@ const PageLayout = ( { children } ) => {
         }
     }, [isOpen]);
 
-   /* const toggleOverlay = (param) => {
-        document.body.classList.toggle(param);
-        window.scrollTo(0, 0);
-    }*/
-
     return (
         <div className={"page-layout-container"}>
             <Navbar setIsOpen={setIsOpen} isOpen={isOpen} />
